@@ -1069,9 +1069,15 @@ pre .javascript .function {
 .tag-cloud {
   text-align: center;
 }
+.tag-cloud .tag-cloud-title {
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+}
 .tag-cloud a {
   display: inline-block;
   margin: 10px;
+  font-weight: bold;
 }
 .back-to-top {
   box-sizing: border-box;
@@ -1959,7 +1965,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4918be;
+  background: #9c3d33;
 }
 .links-of-blogroll {
   font-size: 13px;
