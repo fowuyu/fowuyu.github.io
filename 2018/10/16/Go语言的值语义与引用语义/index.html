@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="​    欢迎来到我的博客，此博客是为了记录个人学习，生活中的一些随笔，如有帮助，欢迎点击文章底部的打赏按钮。">
+  <meta name="description" content="Go语言的值语义与引用语义任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是比较 ，编程语言的三大结构，都需要依赖比较功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。 func main{     a := &amp;quot;yichen&amp;quot;">
+<meta name="keywords" content="Golang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Home">
-<meta property="og:url" content="http://fowuyu.github.io/2018/10/16/Home/index.html">
+<meta property="og:url" content="http://fowuyu.github.io/2018/10/16/Go语言的值语义与引用语义/index.html">
 <meta property="og:site_name" content="易辰随笔">
-<meta property="og:description" content="​    欢迎来到我的博客，此博客是为了记录个人学习，生活中的一些随笔，如有帮助，欢迎点击文章底部的打赏按钮。">
+<meta property="og:description" content="Go语言的值语义与引用语义任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是比较 ，编程语言的三大结构，都需要依赖比较功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。 func main{     a := &amp;quot;yichen&amp;quot;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-16T08:03:36.425Z">
+<meta property="og:updated_time" content="2018-10-16T08:09:05.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Home">
-<meta name="twitter:description" content="​    欢迎来到我的博客，此博客是为了记录个人学习，生活中的一些随笔，如有帮助，欢迎点击文章底部的打赏按钮。">
+<meta name="twitter:description" content="Go语言的值语义与引用语义任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是比较 ，编程语言的三大结构，都需要依赖比较功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。 func main{     a := &amp;quot;yichen&amp;quot;">
 
 
 
 
 
 
-  <link rel="canonical" href="http://fowuyu.github.io/2018/10/16/Home/"/>
+  <link rel="canonical" href="http://fowuyu.github.io/2018/10/16/Go语言的值语义与引用语义/"/>
 
 
 
@@ -296,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://fowuyu.github.io/2018/10/16/Home/">
+    <link itemprop="mainEntityOfPage" href="http://fowuyu.github.io/2018/10/16/Go语言的值语义与引用语义/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yichen">
@@ -338,7 +339,7 @@
                 
               
 
-              <time title="Created: 2018-10-16 16:01:58 / Modified: 16:03:36" itemprop="dateCreated datePublished" datetime="2018-10-16T16:01:58+08:00">2018-10-16</time>
+              <time title="Created: 2018-10-16 16:01:58 / Modified: 16:09:05" itemprop="dateCreated datePublished" datetime="2018-10-16T16:01:58+08:00">2018-10-16</time>
             
 
             
@@ -348,6 +349,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -376,7 +395,53 @@
       
 
       
-        <p>​    欢迎来到我的博客，此博客是为了记录个人学习，生活中的一些随笔，如有帮助，欢迎点击文章底部的打赏按钮。</p>
+        <h1 id="Go语言的值语义与引用语义"><a href="#Go语言的值语义与引用语义" class="headerlink" title="Go语言的值语义与引用语义"></a>Go语言的值语义与引用语义</h1><p>任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是<strong>比较</strong> ，编程语言的三大结构，都需要依赖<strong>比较</strong>功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。</p>
+<pre><code class="go">func main{
+    a := &quot;yichen&quot;
+    b := &quot;yichen&quot;
+    fmt.Print(a == b) //true 可以看出string是值语义
+}
+</code></pre>
+<pre><code class="go">func main{
+    a := [3]{1,2,3}
+    b := a
+    b[1]++
+    fmt.Print(a,b) //{1,2,3},{1,3,3} 可以看出数组居然也是值语义
+}
+</code></pre>
+<pre><code class="go">func main{
+    a := []{1,2,3}
+    b := a
+    b[1]++
+    fmt.Print(a,b) //{1,3,3},{1,3,3} 可以看出slice是引用语义
+}
+</code></pre>
+<pre><code class="go">type Person struct{
+    age int
+    name string
+}
+
+func main() {
+    yichen := Person{21,&quot;yichen&quot;}
+    pengfan := Person{21,&quot;yichen&quot;}
+    fmt.Println(yichen == pengfan) //true 不可思议的是struct也是值语义
+}
+
+</code></pre>
+<pre><code class="go">
+type Person struct{
+    age int
+    name string
+}
+func main() {
+    a := Person{21,&quot;yichen&quot;}
+    b := &amp;a
+    c := &amp;a
+    fmt.Println(b == c) //true 指针也是值语义
+}
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="值语义"><a href="#值语义" class="headerlink" title="值语义"></a>值语义</h3><p>基本类型，如byte、int、bool、float32、float64和string等;<br>复合类型，如数组(array)、结构体(struct)和指针(pointer)等。</p>
+<h3 id="引用语义"><a href="#引用语义" class="headerlink" title="引用语义"></a>引用语义</h3><p>slice,map,list,heap,ring,channels</p>
 
       
     </div>
@@ -424,6 +489,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Golang/" rel="tag"># Golang</a>
+          
+        </div>
+      
 
       
       
@@ -433,15 +504,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/16/Go语言的值语义与引用语义/" rel="next" title="Home">
-                <i class="fa fa-chevron-left"></i> Home
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/16/Home/" rel="prev" title="Home">
+                Home <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -486,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -564,6 +644,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go语言的值语义与引用语义"><span class="nav-number">1.</span> <span class="nav-text">Go语言的值语义与引用语义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.1.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#值语义"><span class="nav-number">1.1.1.</span> <span class="nav-text">值语义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用语义"><span class="nav-number">1.1.2.</span> <span class="nav-text">引用语义</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
