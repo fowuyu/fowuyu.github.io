@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[second]]></title>
-    <url>%2F2018%2F10%2F16%2Fsecond%2F</url>
-    <content type="text"><![CDATA[​ 只有这篇文章会显示在主页，其他的文章需要去category中查找。]]></content>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[index]]></title>
-    <url>%2F2018%2F10%2F16%2Findex%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[c++虚函数指针]]></title>
-    <url>%2F2018%2F10%2F16%2Fc-%E8%99%9A%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%2F</url>
-    <content type="text"><![CDATA[C++虚函数指针​ 关于虚函数，大家并不陌生，这是C++实现多态的基础。]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
+    <title><![CDATA[Home]]></title>
+    <url>%2F2018%2F10%2F16%2FHome%2F</url>
+    <content type="text"><![CDATA[​ 欢迎来到我的博客，此博客是为了记录个人学习，生活中的一些随笔，如有帮助，欢迎点击文章底部的打赏按钮。]]></content>
   </entry>
 </search>
