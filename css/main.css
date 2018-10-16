@@ -1959,7 +1959,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4e24d9;
+  background: #408fff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2387,8 +2387,19 @@ pre .javascript .function {
   border: 1px solid #fff;
   border-radius: 50%;
 }
+.category-all-page .category-all-title {
+  text-align: center;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+}
 .category-all-page .category-all {
   margin-top: 20px;
+}
+.category-all-page .category-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .category-all-page .category-list-item {
   margin: 5px 10px;
