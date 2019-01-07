@@ -108,25 +108,24 @@
 
 
 
-  <meta name="description" content="​       任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是比较 ，编程语言的三大结构，都需要依赖比较功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。 12345func main()&amp;#123;    a := &quot;yichen&quot;    b :=">
-<meta name="keywords" content="Golang">
+  <meta name="description" content="​    首先介绍一下说明是RTTI，所谓RTTI即是Runtime Type Identification（运行时类型识别），那这个技术有什么用呢？一种技术被发明都是用来解决某种问题，当然这种技术可能带来某些副作用，用不用就取决于你是否有能力控制使用新技术带来的副作用。我们知道在写代码时，会用到很多设计模式，通常为了最大程度的提供灵活性，会将很多方法中的形参写成一个基类的引用或者指针，这样将来使">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go语言的值语义与引用语义">
-<meta property="og:url" content="http://fowuyu.github.io/2018/10/16/Go语言的值语义与引用语义/index.html">
+<meta property="og:title" content="C++ RTTI技术">
+<meta property="og:url" content="http://fowuyu.github.io/2019/01/03/尝试介绍C++中RTTI技术/index.html">
 <meta property="og:site_name" content="易辰随笔">
-<meta property="og:description" content="​       任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是比较 ，编程语言的三大结构，都需要依赖比较功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。 12345func main()&amp;#123;    a := &quot;yichen&quot;    b :=">
+<meta property="og:description" content="​    首先介绍一下说明是RTTI，所谓RTTI即是Runtime Type Identification（运行时类型识别），那这个技术有什么用呢？一种技术被发明都是用来解决某种问题，当然这种技术可能带来某些副作用，用不用就取决于你是否有能力控制使用新技术带来的副作用。我们知道在写代码时，会用到很多设计模式，通常为了最大程度的提供灵活性，会将很多方法中的形参写成一个基类的引用或者指针，这样将来使">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-20T08:10:17.844Z">
+<meta property="og:updated_time" content="2019-01-07T12:05:55.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go语言的值语义与引用语义">
-<meta name="twitter:description" content="​       任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是比较 ，编程语言的三大结构，都需要依赖比较功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。 12345func main()&amp;#123;    a := &quot;yichen&quot;    b :=">
+<meta name="twitter:title" content="C++ RTTI技术">
+<meta name="twitter:description" content="​    首先介绍一下说明是RTTI，所谓RTTI即是Runtime Type Identification（运行时类型识别），那这个技术有什么用呢？一种技术被发明都是用来解决某种问题，当然这种技术可能带来某些副作用，用不用就取决于你是否有能力控制使用新技术带来的副作用。我们知道在写代码时，会用到很多设计模式，通常为了最大程度的提供灵活性，会将很多方法中的形参写成一个基类的引用或者指针，这样将来使">
 
 
 
 
 
 
-  <link rel="canonical" href="http://fowuyu.github.io/2018/10/16/Go语言的值语义与引用语义/"/>
+  <link rel="canonical" href="http://fowuyu.github.io/2019/01/03/尝试介绍C++中RTTI技术/"/>
 
 
 
@@ -136,7 +135,7 @@
   };
 </script>
 
-  <title>Go语言的值语义与引用语义 | 易辰随笔</title>
+  <title>C++ RTTI技术 | 易辰随笔</title>
   
 
 
@@ -328,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://fowuyu.github.io/2018/10/16/Go语言的值语义与引用语义/">
+    <link itemprop="mainEntityOfPage" href="http://fowuyu.github.io/2019/01/03/尝试介绍C++中RTTI技术/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yichen">
@@ -345,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Go语言的值语义与引用语义
+          <h1 class="post-title" itemprop="name headline">C++ RTTI技术
               
             
           </h1>
@@ -370,7 +369,7 @@
                 
               
 
-              <time title="Created: 2018-10-16 16:01:58" itemprop="dateCreated datePublished" datetime="2018-10-16T16:01:58+08:00">2018-10-16</time>
+              <time title="Created: 2019-01-03 15:00:56" itemprop="dateCreated datePublished" datetime="2019-01-03T15:00:56+08:00">2019-01-03</time>
             
 
             
@@ -387,7 +386,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-20 16:10:17" itemprop="dateModified" datetime="2018-10-20T16:10:17+08:00">2018-10-20</time>
+                <time title="Modified: 2019-01-07 20:05:55" itemprop="dateModified" datetime="2019-01-07T20:05:55+08:00">2019-01-07</time>
               
             
           </span>
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
 
                 
                 
@@ -438,14 +437,22 @@
       
 
       
-        <p>​       任何一门语言，如果其有指针概念，则需要了解这门语言是否拥有引用语义，当然你可以说任何引用语义都是值语义（正确的废话）。之所以这个内容需要深入理解，因为它涉及到一个重要的内容，那就是<strong>比较</strong> ，编程语言的三大结构，都需要依赖<strong>比较</strong>功能，而比较就需要我们理解比较的到底是变量的值，还是变量指向的值。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a := <span class="string">"yichen"</span></span><br><span class="line">    b := <span class="string">"yichen"</span></span><br><span class="line">    fmt.Print(a == b) <span class="comment">//true 可以看出string是值语义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a := [<span class="number">3</span>]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">    b := a</span><br><span class="line">    b[<span class="number">1</span>]++</span><br><span class="line">    fmt.Print(a,b) <span class="comment">//&#123;1,2,3&#125;,&#123;1,3,3&#125; 可以看出数组居然也是值语义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a := []&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">    b := a</span><br><span class="line">    b[<span class="number">1</span>]++</span><br><span class="line">    fmt.Print(a,b) <span class="comment">//&#123;1,3,3&#125;,&#123;1,3,3&#125; 可以看出slice是引用语义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span>&#123;</span><br><span class="line">	age <span class="keyword">int</span></span><br><span class="line">	name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	yichen := Person&#123;<span class="number">21</span>,<span class="string">"yichen"</span>&#125;</span><br><span class="line">	pengfan := Person&#123;<span class="number">21</span>,<span class="string">"yichen"</span>&#125;</span><br><span class="line">	fmt.Println(yichen == pengfan) <span class="comment">//true 不可思议的是struct也是值语义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span>&#123;</span><br><span class="line">	age <span class="keyword">int</span></span><br><span class="line">	name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	a := Person&#123;<span class="number">21</span>,<span class="string">"yichen"</span>&#125;</span><br><span class="line">	b := &amp;a</span><br><span class="line">	c := &amp;a</span><br><span class="line">	fmt.Println(b == c) <span class="comment">//true 指针也是值语义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="值语义"><a href="#值语义" class="headerlink" title="值语义"></a>值语义</h3><p>基本类型，如byte、int、bool、float32、float64和string等;<br>复合类型，如数组(array)、结构体(struct)和指针(pointer)等。</p>
-<h3 id="引用语义"><a href="#引用语义" class="headerlink" title="引用语义"></a>引用语义</h3><p>slice,map,list,heap,ring,channels</p>
+        <p>​    首先介绍一下说明是<strong>RTTI</strong>，所谓<strong>RTTI</strong>即是<strong>Runtime Type Identification</strong>（运行时类型识别），那这个技术有什么用呢？<em>一种技术被发明都是用来解决某种问题，当然这种技术可能带来某些副作用，用不用就取决于你是否有能力控制使用新技术带来的副作用</em>。我们知道在写代码时，会用到很多设计模式，通常为了最大程度的提供灵活性，会将很多方法中的形参写成一个基类的引用或者指针，这样将来使用者传参时，传递这个基类或者其子类都无需我们改变方法签名。但是这也带来了一个问题，由于我不知道使用者将来会传递什么子类进来，而我可能需要针对不同子类做不同操作，这时候我就想在代码里判断方法使用者传递进来的子类类型，这时候该怎么办呢？这就是RTTI技术尝试解决的问题，RTTI需要提供在运行时对类型进行识别的能力以供程序员在运行时对类型进行判定，<em>当然需要引起注意的是C++的RTTI技术能力有限，和Java比那是天差地别，之所以会这样是因为C++为了性能不得不牺牲些特性，而RTTI对性能还是有些影响的</em>。</p>
+<p>​    要想理解清楚RTTI技术，首先得比较清楚的明白C++的多态实现机制，得对C++对象内存布局有比较好的了解，因为没有多态就无需RTTI技术。C++语言给使用者提供了两个工具来进行运行时类型识别，第一个是<strong>typeid</strong>,另一个是<strong>dynamic_cast</strong>,二者有区别有相似。首先我们来介绍<strong>typeid</strong>，要使用<strong>typeid</strong>，首先需要引入头文件#include<typeinfo>,typeid方法需要传递一个需要判断类型的参数，这个参数可以是一个基本类型包括指针类型，也可以是类对象，甚至可以是一个value，typeid返回的是一个type_info对象，调用type_info对象的name()方法就能获取前述需要判断类型的参数的全限定名字。例子如下：</typeinfo></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*例子1*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;typeinfo&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XX</span> :</span> <span class="keyword">public</span> X&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; iarrays;</span><br><span class="line">    iarrays.push_back(<span class="number">3</span>);</span><br><span class="line">    </span><br><span class="line">    X x;</span><br><span class="line">    XX xx;</span><br><span class="line">    x = xx;</span><br><span class="line">    X *xpointer = <span class="keyword">new</span> XX();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(iarrays).name() &lt;&lt;<span class="built_in">endl</span>; <span class="comment">//输出St6vectorIiSaIiEE 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(<span class="number">4</span>).name() &lt;&lt;<span class="built_in">endl</span>; <span class="comment">//输出 i 表示int 2</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(x).name() &lt;&lt;<span class="built_in">endl</span>; <span class="comment">//输出 1X 3</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(xx).name() &lt;&lt;<span class="built_in">endl</span>;<span class="comment">//输出 2XX 4</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(xpointer).name() &lt;&lt;<span class="built_in">endl</span>;<span class="comment">//输出P1X 5</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(*xpointer).name() &lt;&lt;<span class="built_in">endl</span>;<span class="comment">//输出1X 6</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里比较困惑的是输出5和输出6，先不着急解释原因，再看一个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*例子2*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">myfunc</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt; <span class="string">"X"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XX</span> :</span> <span class="keyword">public</span> X&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">myfunc</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"XX"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    X *xpointer = <span class="keyword">new</span> XX();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(xpointer).name() &lt;&lt;<span class="built_in">endl</span>;<span class="comment">//输出P1X 7</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(*xpointer).name() &lt;&lt;<span class="built_in">endl</span>;<span class="comment">//输出2XX 8</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    例子1和例子2中，区别在于例子2的<strong>X</strong>类有虚函数，为什么有虚函数后typeid输出基类指针的解引用就能正确输出指针指向的对象的类型呢？这就涉及到C++多态情况下的实现机制，详细内容可参考其他书籍等资料。这里简单说一下就是虚函数表起始地址之上保存了一个type_info类对象，type_info对象里保存了此类的全限定名等信息。因此typeid()方法接受一个基类指针指向的子类对象时，如果是判断此指针，则是静态判断，依然输出的是P1X这种，表明这是一个指针，指向X类型。只有用指针的解引用输入到typeid()中才能输出指针指向的对象的真实类型。</p>
+<p>​    说道这里基本了解了RTTI的实现原理以及应用，但是我们写代码时候一般在有多态情况下不用typeid来做判断，因为它无法处理例子1中的继承关系，如果没有虚函数，typeid就只能做静态推到，而C++又允许没有虚函数的继承层次。为了灵活的处理，建议使用dynamic_cast,它正确的返回结果是子类的地址，错误的返回是null，例子如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;typeinfo&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> namesapce <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        X()</span><br><span class="line">        &#123;</span><br><span class="line">            mX = <span class="number">101</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">virtual</span> ~X()</span><br><span class="line">        &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> mX;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XX</span> :</span> <span class="keyword">public</span> X</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        XX():</span><br><span class="line">            X()</span><br><span class="line">        &#123;</span><br><span class="line">            mXX = <span class="number">1001</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">virtual</span> ~XX()</span><br><span class="line">        &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> mXX;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YX</span> :</span> <span class="keyword">public</span> X</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        YX()</span><br><span class="line">        &#123;</span><br><span class="line">            mYX = <span class="number">1002</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">virtual</span> ~YX()</span><br><span class="line">        &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> mYX;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    X x;</span><br><span class="line">    XX xx;</span><br><span class="line">    YX yx;</span><br><span class="line"> </span><br><span class="line">    X *px = &amp;xx;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; px &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">    XX *pxx = <span class="keyword">dynamic_cast</span>&lt;XX*&gt;(px); <span class="comment">// 转换1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; pxx &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">    YX *pyx = <span class="keyword">dynamic_cast</span>&lt;YX*&gt;(px); <span class="comment">// 转换2</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; pyx &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">    pyx = (YX*)px; <span class="comment">// 转换3</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; pyx &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">    pyx = <span class="keyword">static_cast</span>&lt;YX*&gt;(px); <span class="comment">// 转换4</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; pyx &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    只有转换1是成功的，转换2输出null,转换3是C风格的转换，看似成功，但是一旦发生调用，就出错，转换4是强制转换，看似成功，但是一旦发生调用就出错。上述例子是以指针作为案例，如果是引用呢？对于引用，dynamic_cast的错误输出的抛出一个bad cast异常。比如如果要判断上述代码中px指向的对象是否是X类的子类。则：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">dynamic_cast</span>&lt;X*&gt;(px)) <span class="built_in">cout</span>&lt;&lt;<span class="string">"px pointer is sub class of X"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>​    最后补充一些dynamic_cast的实现原理：</p>
+<p>​    1）计算指针或引用变量所指的对象的虚函数表的type_info信息，如下：(type_info*)px-&gt;vptr[-1]</p>
+<p>​    2）静态推导向下转型的目标类型的type_info信息，即获取类XX的type_info信息</p>
+<p>​    3）比较1）和2）中获取到的type_info信息，若2）中的类型信息与1）中的类型信息相等或是其基类类型，则返回相应的对象或子对象的地址，否则返回NULL。</p>
+<p>​    dynamic_cast不是常量时间的操作，不建议过多使用，其底层原理基本typeid都可以搞定。所以建议多使用typeid而非dynamic_cast操作。</p>
+<p>#### </p>
 
       
     </div>
@@ -493,12 +500,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Golang/" rel="tag"># Golang</a>
-          
-        </div>
-      
 
       
       
@@ -508,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/16/Home/" rel="next" title="Home">
-                <i class="fa fa-chevron-left"></i> Home
+              <a href="/2018/10/20/闭包的理解/" rel="next" title="闭包的理解">
+                <i class="fa fa-chevron-left"></i> 闭包的理解
               </a>
             
           </div>
@@ -518,8 +519,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/20/闭包的理解/" rel="prev" title="闭包的理解">
-                闭包的理解 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/03/C++ explicit的含义和用法/" rel="prev" title="C++ explicit的含义和用法">
+                C++ explicit的含义和用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -565,17 +566,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -658,22 +650,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#值语义"><span class="nav-number">1.1.</span> <span class="nav-text">值语义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用语义"><span class="nav-number">1.2.</span> <span class="nav-text">引用语义</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
