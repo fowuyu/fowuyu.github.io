@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="笔记，想法">
-<meta property="og:type" content="website">
-<meta property="og:title" content="易辰随笔">
-<meta property="og:url" content="http://fowuyu.github.io/categories/index.html">
+  <meta name="description" content="​    c++的const以及static非常容易弄混，到底什么是const语义，什么是static语义，以及const和指针的搭配还有两种区别，因此给我们带来了很多麻烦。本文试图将const和static的异同进行一个总结。 ​    以下内容针对类中变量以及函数内局部变量而言：const修饰非指针变量时候，是具有生命周期的，出了变量范围，则变量所占用的内存空间被回收，而static所修饰的变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++中const以及static的总结">
+<meta property="og:url" content="http://fowuyu.github.io/2019/01/10/C++中const以及static的总结/index.html">
 <meta property="og:site_name" content="易辰随笔">
-<meta property="og:description" content="笔记，想法">
+<meta property="og:description" content="​    c++的const以及static非常容易弄混，到底什么是const语义，什么是static语义，以及const和指针的搭配还有两种区别，因此给我们带来了很多麻烦。本文试图将const和static的异同进行一个总结。 ​    以下内容针对类中变量以及函数内局部变量而言：const修饰非指针变量时候，是具有生命周期的，出了变量范围，则变量所占用的内存空间被回收，而static所修饰的变">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-16T05:34:23.373Z">
+<meta property="og:updated_time" content="2019-01-10T03:06:44.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="易辰随笔">
-<meta name="twitter:description" content="笔记，想法">
+<meta name="twitter:title" content="C++中const以及static的总结">
+<meta name="twitter:description" content="​    c++的const以及static非常容易弄混，到底什么是const语义，什么是static语义，以及const和指针的搭配还有两种区别，因此给我们带来了很多麻烦。本文试图将const和static的异同进行一个总结。 ​    以下内容针对类中变量以及函数内局部变量而言：const修饰非指针变量时候，是具有生命周期的，出了变量范围，则变量所占用的内存空间被回收，而static所修饰的变">
 
 
 
 
 
 
-  <link rel="canonical" href="http://fowuyu.github.io/categories/"/>
+  <link rel="canonical" href="http://fowuyu.github.io/2019/01/10/C++中const以及static的总结/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>Category | 易辰随笔</title>
+  <title>C++中const以及static的总结 | 易辰随笔</title>
   
 
 
@@ -235,7 +235,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
@@ -307,93 +307,220 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://fowuyu.github.io/2019/01/10/C++中const以及static的总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yichen">
+      <meta itemprop="description" content="笔记，想法">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="易辰随笔">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline"></h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                4 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Function-Programming/">Function Programming</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">C++中const以及static的总结
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-10 11:06:44" itemprop="dateCreated datePublished" datetime="2019-01-10T11:06:44+08:00">2019-01-10</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>​    c++的const以及static非常容易弄混，到底什么是const语义，什么是static语义，以及const和指针的搭配还有两种区别，因此给我们带来了很多麻烦。本文试图将const和static的异同进行一个总结。</p>
+<p>​    以下内容针对类中变量以及函数内局部变量而言：const修饰非指针变量时候，是具有生命周期的，出了变量范围，则变量所占用的内存空间被回收，而static所修饰的变量在最终编译链接后保存在静态区域，它不依赖于对象而存在，可以直接通过类名+变量名直接调用。const依赖于对象，每个对象所拥有的const变量值不一样。这就带来一个问题，const修饰的变量需要列表初始化而不能再构造函数内赋值，原因在于当运行到类的构造函数内部时，<strong>c++规定const成员和引用成员必须在初始化列表中初始化</strong>，而不能在构造函数体内再被赋值，所以const修饰的类变量必须使用列表初始化。那const修饰的类变量是否可以申明时候即赋值呢？也就是如下代码正确吗？</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    explicit Person(string name,int age):_name(name),_age(age)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; name &lt;&lt; <span class="string">" is: "</span>&lt;&lt; _age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">virtual</span> ~Person()&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">string</span> _name;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> _age = <span class="number">7</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">yichen</span><span class="params">(<span class="string">"yichen"</span>,<span class="number">24</span>)</span></span>; <span class="comment">// yichen is 7</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码可以正常运行，但是这是一个c++11的一个拓展，并不一定在所有编译器上都能运行成功。为了保证兼容性，我们写代码时候就不要对const变量赋默认值，而是统一放到构造函数列表初始化中完成。正确范式如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    explicit Person(string name,int age):_name(name),_age(age)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; name &lt;&lt; <span class="string">" is: "</span>&lt;&lt; _age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">virtual</span> ~Person()&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">string</span> _name;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> _age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">yichen</span><span class="params">(<span class="string">"yichen"</span>,<span class="number">24</span>)</span></span>; <span class="comment">//output: yichen is 24;</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而对于static修饰变量，就更为复杂了。上文说过static修饰的类内变量是所有对象共享的，不依赖于对象即可存在，因此static修饰的变量肯定不能用列表初始化，也不能再构造函数内赋值。那么可以在声明static变量时就赋初始值吗？答案是不可以，c++规定，非const static变量一律不能在类内初始化。也就是说如下代码是错误的；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="built_in">string</span> _name;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> _age;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> _tall = <span class="number">175</span>; <span class="comment">//error!!!</span></span><br></pre></td></tr></table></figure>
+<p>那么static修饰的变量该如何初始化呢？c++规定要在类外部初始化。也就是要写成如下代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    explicit Person(string name,int age):_name(name),_age(age)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; name &lt;&lt; <span class="string">" is: "</span>&lt;&lt; _age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"tall is: "</span>&lt;&lt; _tall &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">virtual</span> ~Person()&#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">string</span> _name;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> _age = <span class="number">7</span>;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> _tall;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Person::_tall = <span class="number">175</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">yichen</span><span class="params">(<span class="string">"yichen"</span>,<span class="number">24</span>)</span></span>;<span class="comment">//output: yichen is: 24 tall is: 175</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>.这表明static修饰的变量：</p>
+<p>1、<strong>初始化在类体外进行，而前面不加static</strong>，以免与一般静态变量或对象相混淆</p>
+<p>2、初始化时不加该成员的访问权限控制符private、public等</p>
+<p>3、初始化时使用<strong>作用域运算符来表明它所属的类</strong>，因此，静态数据成员是类的成员而不是对象的成员。</p>
+<p>那么对于const static修饰变量以及static const修饰的变量该如何初始化呢,这两个修饰符顺序无所谓，语义一致？c++规定：const static和static const修饰的变量既可以在类内部声明处初始化，也可以在类外部赋值初始化。如果在类外部初始化，则修饰符const 不能省略，static和访问权限控制符可以省略。切记，const static不能再构造函数内赋值也不能使用列表初始化，因为它修饰的变量不属于对象，而是属于类的。</p>
+<p>还需要注意的是static修饰的函数只能访问static数据，不能访问非static数据，这很容易理解。</p>
+<p>const int<em> a和int </em> const a的区别就不再啰嗦了。前者是a中内容不可变，后者是a指向的地址不可变。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpg" alt="yichen WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="yichen Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/07/C++ 析构函数与delete的区别于联系/" rel="next" title="C++ 析构函数与delete的区别于联系">
+                <i class="fa fa-chevron-left"></i> C++ 析构函数与delete的区别于联系
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/11/CC++为什么函数压栈要从右到左/" rel="prev" title="C/C++为什么函数压栈要从右到左">
+                C/C++为什么函数压栈要从右到左 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 

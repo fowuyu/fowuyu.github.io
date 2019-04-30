@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="笔记，想法">
-<meta property="og:type" content="website">
-<meta property="og:title" content="易辰随笔">
-<meta property="og:url" content="http://fowuyu.github.io/categories/index.html">
+  <meta name="description" content="​    要理解这个问题，首先要理解调用函数时候的栈的变化细节，如果理解ebp,esp的变化过程，则可以进行下一步讨论，否则需要先去弄懂函数栈的调用细节。可参考深入理解计算机系统一书的介绍。闲话少叙，如果不需要支持可变参数，则函数参数的压栈顺序是无所谓的。之所以参数压栈顺序是从右往左，是因为C/C++规定变参函数的第一个参数可以用来确定后续参数的个数。这句话告诉我们，被调用函数要去获取参数值的时候">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C&#x2F;C++为什么函数压栈要从右到左">
+<meta property="og:url" content="http://fowuyu.github.io/2019/01/11/CC++为什么函数压栈要从右到左/index.html">
 <meta property="og:site_name" content="易辰随笔">
-<meta property="og:description" content="笔记，想法">
+<meta property="og:description" content="​    要理解这个问题，首先要理解调用函数时候的栈的变化细节，如果理解ebp,esp的变化过程，则可以进行下一步讨论，否则需要先去弄懂函数栈的调用细节。可参考深入理解计算机系统一书的介绍。闲话少叙，如果不需要支持可变参数，则函数参数的压栈顺序是无所谓的。之所以参数压栈顺序是从右往左，是因为C/C++规定变参函数的第一个参数可以用来确定后续参数的个数。这句话告诉我们，被调用函数要去获取参数值的时候">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-16T05:34:23.373Z">
+<meta property="og:updated_time" content="2019-01-11T03:12:47.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="易辰随笔">
-<meta name="twitter:description" content="笔记，想法">
+<meta name="twitter:title" content="C&#x2F;C++为什么函数压栈要从右到左">
+<meta name="twitter:description" content="​    要理解这个问题，首先要理解调用函数时候的栈的变化细节，如果理解ebp,esp的变化过程，则可以进行下一步讨论，否则需要先去弄懂函数栈的调用细节。可参考深入理解计算机系统一书的介绍。闲话少叙，如果不需要支持可变参数，则函数参数的压栈顺序是无所谓的。之所以参数压栈顺序是从右往左，是因为C/C++规定变参函数的第一个参数可以用来确定后续参数的个数。这句话告诉我们，被调用函数要去获取参数值的时候">
 
 
 
 
 
 
-  <link rel="canonical" href="http://fowuyu.github.io/categories/"/>
+  <link rel="canonical" href="http://fowuyu.github.io/2019/01/11/CC++为什么函数压栈要从右到左/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>Category | 易辰随笔</title>
+  <title>C/C++为什么函数压栈要从右到左 | 易辰随笔</title>
   
 
 
@@ -235,7 +235,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
@@ -307,93 +307,205 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://fowuyu.github.io/2019/01/11/CC++为什么函数压栈要从右到左/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yichen">
+      <meta itemprop="description" content="笔记，想法">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="易辰随笔">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline"></h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                4 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Function-Programming/">Function Programming</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">C/C++为什么函数压栈要从右到左
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-11 11:12:47" itemprop="dateCreated datePublished" datetime="2019-01-11T11:12:47+08:00">2019-01-11</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机基础/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>​    要理解这个问题，首先要理解调用函数时候的栈的变化细节，如果理解ebp,esp的变化过程，则可以进行下一步讨论，否则需要先去弄懂函数栈的调用细节。可参考深入理解计算机系统一书的介绍。闲话少叙，如果不需要支持可变参数，则函数参数的压栈顺序是无所谓的。之所以参数压栈顺序是从右往左，<strong>是因为C/C++规定变参函数的第一个参数可以用来确定后续参数的个数。</strong>这句话告诉我们，被调用函数要去获取参数值的时候，也就是ebp往高地址方向移动时，到底该移动几个字节去取参数，从右往左压的话，ebp+4是返回地址，ebp+8就是最左边参数，通过这个参数可以获取后续参数个数以及类型，也就是知道了所有参数的个数。反过来如果从左往右压，被调用函数在函数内部去获取参数值的时候，也就是ebp往高地址方向移动时，即便ebp+8也无法知道后续参数个数。因此这就是函数参数压栈顺序从右到左的原因所在。那有人就想问，能否从左往右压呢？可以的，只要你牺牲一个寄存器用来记录参数个数即可，事实上现在有的CPU就这么干了。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpg" alt="yichen WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="yichen Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/10/C++中const以及static的总结/" rel="next" title="C++中const以及static的总结">
+                <i class="fa fa-chevron-left"></i> C++中const以及static的总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/29/C-移动函数-md/" rel="prev" title="C++移动函数.md">
+                C++移动函数.md <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
