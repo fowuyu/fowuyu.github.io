@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="笔记，想法">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: TCP中seq和ack详解visible: hidedate: 2019-05-07 18:57:24tags: seq ackcategories: TCP ​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所">
+<meta property="og:type" content="article">
 <meta property="og:title" content="易辰随笔">
-<meta property="og:url" content="http://fowuyu.github.io/categories/index.html">
+<meta property="og:url" content="http://fowuyu.github.io/2019/05/07/TCP的seq和ack详解/index.html">
 <meta property="og:site_name" content="易辰随笔">
-<meta property="og:description" content="笔记，想法">
+<meta property="og:description" content="title: TCP中seq和ack详解visible: hidedate: 2019-05-07 18:57:24tags: seq ackcategories: TCP ​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-16T05:34:23.373Z">
+<meta property="og:updated_time" content="2019-05-07T11:09:38.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="易辰随笔">
-<meta name="twitter:description" content="笔记，想法">
+<meta name="twitter:description" content="title: TCP中seq和ack详解visible: hidedate: 2019-05-07 18:57:24tags: seq ackcategories: TCP ​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所">
 
 
 
 
 
 
-  <link rel="canonical" href="http://fowuyu.github.io/categories/"/>
+  <link rel="canonical" href="http://fowuyu.github.io/2019/05/07/TCP的seq和ack详解/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>Category | 易辰随笔</title>
+  <title> | 易辰随笔</title>
   
 
 
@@ -235,7 +235,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
@@ -307,93 +307,286 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://fowuyu.github.io/2019/05/07/TCP的seq和ack详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yichen">
+      <meta itemprop="description" content="笔记，想法">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="易辰随笔">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline"></h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    
-                  
-                
-                4 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Function-Programming/">Function Programming</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Golang/">Golang</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-07 18:57:24 / Modified: 19:09:38" itemprop="dateCreated datePublished" datetime="2019-05-07T18:57:24+08:00">2019-05-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>title: TCP中seq和ack详解<br>visible: hide<br>date: 2019-05-07 18:57:24<br>tags: seq ack<br>categories: TCP</p>
+<p>​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所有报文段都必须把 ACK 字段置为 1。</p>
+<p><strong>seq</strong>：占 4 字节，序号范围[0，2^32-1]，序号增加到 2^32-1 后，下个序号又回到 0。TCP 是面向字节流的，通过 TCP 传送的字节流中的每个字节都按顺序编号，<strong>而报头中的序号字段值则指的是本报文段数据的第一个字节的序号</strong>。<br><strong>ack：</strong>占 4 字节，<strong>期望收到对方下个报文段的第一个数据字节的序号</strong>。</p>
+<h2 id="1、三次握手过程中seq和ack的值："><a href="#1、三次握手过程中seq和ack的值：" class="headerlink" title="1、三次握手过程中seq和ack的值："></a>1、三次握手过程中seq和ack的值：</h2><p>一个TCP连接的建立是通过三次握手来实现的</p>
+<ul>
+<li><p>1.(A) –&gt; [SYN] –&gt; (B)</p>
+<p>​        假如服务器B和客户机A通讯. 当A要和B通信时，A首先向B发一个SYN (Synchronize) 标记的包，告诉B请求建立连接.注意: 一个 SYN包就是仅SYN标记设为1的TCP包(参见TCP包头Resources). 认识到这点很重要，只有当B受到A发来的SYN包，才可建立连接，除此之外别无他法。因此，如果你的防火墙丢弃所有的发往外网接口的SYN包，那么你将不能主动连接外部任何主机，除非不是TCP协议。</p>
+</li>
+<li><p>2.(A) &lt;– [SYN/ACK] &lt;–(B)<br>​       接着，B收到后会发一个对SYN包的确认包(SYN/ACK)回去，表示对第一个SYN包的确认，并继续握手操作.</p>
+</li>
+<li><p>3.(A) –&gt; [ACK] –&gt; (B)</p>
+</li>
+</ul>
+<p>A收到SYN/ACK 包,A发一个确认包(ACK)，通知B连接已建立。至此，三次握手完成，一个TCP连接完成</p>
+<p>Note: ACK包就是仅ACK 标记设为1的TCP包. 需要注意的是当三此握手完成、连接建立以后，TCP连接的每个包都会设置ACK位<br><strong>握手阶段：</strong></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方向</th>
+<th>seq</th>
+<th>ack</th>
+<th>SYN</th>
+<th>ACK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A-&gt;B</td>
+<td>10000</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B-&gt;A</td>
+<td>20000</td>
+<td>10000+1=10001</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A-&gt;B</td>
+<td>10001</td>
+<td>20000+1=20001</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>解释：<br>1：A向B发起连接请求，以一个随机数初始化A的seq,这里假设为10000，此时ACK＝0</p>
+<p>2：B收到A的连接请求后，也以一个随机数初始化B的seq，这里假设为20000，意思是：你的请求我已收到，我这方的数据流就从这个数开始。B的ACK是A的seq加1，即10000＋1＝10001</p>
+<p>3：A收到B的回复后，它的seq是它的上个请求的seq加1，即10000＋1＝10001，意思也是：你的回复我收到了，我这方的数据流就从这个数开始。A此时的ACK是B的seq加1，即20000+1=20001</p>
+<h2 id="2、数据传输过程中seq和ack的值："><a href="#2、数据传输过程中seq和ack的值：" class="headerlink" title="2、数据传输过程中seq和ack的值："></a>2、数据传输过程中seq和ack的值：</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>方向</th>
+<th>seq</th>
+<th>ack</th>
+<th>size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23</td>
+<td>A-&gt;B</td>
+<td>40000</td>
+<td>70000</td>
+<td>1514</td>
+</tr>
+<tr>
+<td>24</td>
+<td>B-&gt;A</td>
+<td>70000</td>
+<td>40000+1514-54+1=41461</td>
+<td>54</td>
+</tr>
+<tr>
+<td>25</td>
+<td>A-&gt;B</td>
+<td>41461</td>
+<td>70000+54-54+1=70001</td>
+<td>1514</td>
+</tr>
+<tr>
+<td>26</td>
+<td>B-&gt;A</td>
+<td>70001</td>
+<td>41460+1514-54+1=42921</td>
+<td>54</td>
+</tr>
+</tbody>
+</table>
+<p><strong>解释：</strong><br>23:B接收到A发来的seq=40000,ack=70000,size=1514的数据包</p>
+<p>24:于是B向A也发一个数据包，告诉A，你的上个包我收到了。A的seq就以它收到的数据包的ack填充，ack是它收到的数据包的seq加上数据包的大小(不包括：以太网协议头=14字节，IP头=20字节，TCP头=20字节)，以证实B发过来的数据全收到了。</p>
+<p>25:A在收到B发过来的ack为41460的数据包时，一看到41460，正好是它的上个数据包的seq加上包的大小，就明白，上次发送的数据包已安全到达。于是它再发一个数据包给B。这个正在发送的数据包的seq也以它收到的数据包的ack填充，ack 就以它收到的数据包的seq(70000)加上包的size(54)填充,即ack=70000+54-54(全是头长，没数据项)。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.jpg" alt="yichen WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="yichen Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/29/C-移动函数/" rel="next" title="C++移动语义与右值引用">
+                <i class="fa fa-chevron-left"></i> C++移动语义与右值引用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -423,8 +616,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -509,6 +711,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、三次握手过程中seq和ack的值："><span class="nav-number">1.</span> <span class="nav-text">1、三次握手过程中seq和ack的值：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、数据传输过程中seq和ack的值："><span class="nav-number">2.</span> <span class="nav-text">2、数据传输过程中seq和ack的值：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
