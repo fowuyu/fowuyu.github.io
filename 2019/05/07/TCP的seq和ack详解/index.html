@@ -108,17 +108,18 @@
 
 
 
-  <meta name="description" content="title: TCP中seq和ack详解visible: hidedate: 2019-05-07 18:57:24tags: seq ackcategories: TCP ​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所">
+  <meta name="description" content="​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所有报文段都必须把 ACK 字段置为 1。 seq：占 4 字节，序号范围[0，2^32-1]，序号增加到 2^32-1 后，下个序号又回到 0。TCP 是面向字节流的，通过">
+<meta name="keywords" content="seq ack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="易辰随笔">
+<meta property="og:title" content="TCP中seq和ack详解">
 <meta property="og:url" content="http://fowuyu.github.io/2019/05/07/TCP的seq和ack详解/index.html">
 <meta property="og:site_name" content="易辰随笔">
-<meta property="og:description" content="title: TCP中seq和ack详解visible: hidedate: 2019-05-07 18:57:24tags: seq ackcategories: TCP ​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所">
+<meta property="og:description" content="​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所有报文段都必须把 ACK 字段置为 1。 seq：占 4 字节，序号范围[0，2^32-1]，序号增加到 2^32-1 后，下个序号又回到 0。TCP 是面向字节流的，通过">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-07T11:09:38.828Z">
+<meta property="og:updated_time" content="2019-05-07T11:12:37.719Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="易辰随笔">
-<meta name="twitter:description" content="title: TCP中seq和ack详解visible: hidedate: 2019-05-07 18:57:24tags: seq ackcategories: TCP ​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所">
+<meta name="twitter:title" content="TCP中seq和ack详解">
+<meta name="twitter:description" content="​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所有报文段都必须把 ACK 字段置为 1。 seq：占 4 字节，序号范围[0，2^32-1]，序号增加到 2^32-1 后，下个序号又回到 0。TCP 是面向字节流的，通过">
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title> | 易辰随笔</title>
+  <title>TCP中seq和ack详解 | 易辰随笔</title>
   
 
 
@@ -344,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">TCP中seq和ack详解
               
             
           </h1>
@@ -369,7 +370,7 @@
                 
               
 
-              <time title="Created: 2019-05-07 18:57:24 / Modified: 19:09:38" itemprop="dateCreated datePublished" datetime="2019-05-07T18:57:24+08:00">2019-05-07</time>
+              <time title="Created: 2019-05-07 18:57:24 / Modified: 19:12:37" itemprop="dateCreated datePublished" datetime="2019-05-07T18:57:24+08:00">2019-05-07</time>
             
 
             
@@ -379,6 +380,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/TCP/" itemprop="url" rel="index"><span itemprop="name">TCP</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -407,8 +426,7 @@
       
 
       
-        <p>title: TCP中seq和ack详解<br>visible: hide<br>date: 2019-05-07 18:57:24<br>tags: seq ack<br>categories: TCP</p>
-<p>​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所有报文段都必须把 ACK 字段置为 1。</p>
+        <p>​    seq和ack号存在于TCP报文段的首部中，seq是序号，ack是确认号，大小均为4字节（注意与大写的ACK不同，ACK是6个控制位之一，大小只有一位， 仅当 ACK=1 时ack字段才有效。建立 TCP 连接后，所有报文段都必须把 ACK 字段置为 1。</p>
 <p><strong>seq</strong>：占 4 字节，序号范围[0，2^32-1]，序号增加到 2^32-1 后，下个序号又回到 0。TCP 是面向字节流的，通过 TCP 传送的字节流中的每个字节都按顺序编号，<strong>而报头中的序号字段值则指的是本报文段数据的第一个字节的序号</strong>。<br><strong>ack：</strong>占 4 字节，<strong>期望收到对方下个报文段的第一个数据字节的序号</strong>。</p>
 <h2 id="1、三次握手过程中seq和ack的值："><a href="#1、三次握手过程中seq和ack的值：" class="headerlink" title="1、三次握手过程中seq和ack的值："></a>1、三次握手过程中seq和ack的值：</h2><p>一个TCP连接的建立是通过三次握手来实现的</p>
 <ul>
@@ -554,6 +572,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/seq-ack/" rel="tag"># seq ack</a>
+          
+        </div>
+      
 
       
       
@@ -666,7 +690,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -683,7 +709,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
